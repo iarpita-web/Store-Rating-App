@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// Always include /api since your backend mounts routes under /api
+
 const baseURL =
   import.meta.env.VITE_API_URL
     ? `${import.meta.env.VITE_API_URL}/api`
@@ -8,10 +8,10 @@ const baseURL =
 
 export const api = axios.create({
   baseURL,
-  withCredentials: true, // optional, if you plan to use cookies/sessions
+  withCredentials: true, 
 });
 
-// Optional: a clean response interceptor for better error messages
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {
