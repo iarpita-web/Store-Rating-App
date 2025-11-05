@@ -11,14 +11,14 @@ const app = express();
 
 app.use(cors());
 app.use(helmet());
-app.use(express.json());  // ✅ must be here before routes
+app.use(express.json());  // 
 app.use(morgan('dev'));
 
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.use('/api', router); // ✅ routes come after middleware
+app.use('/api', router); // 
 
 app.use(notFoundHandler);
 app.use(errorHandler);
