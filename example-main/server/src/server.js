@@ -11,19 +11,20 @@ const app = express();
 
 app.use(cors());
 app.use(helmet());
-app.use(express.json());  // 
+app.use(express.json());
 app.use(morgan('dev'));
 
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.use('/api', router); // 
+app.use('/api', router);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server listening on http://localhost:${PORT}`);
+  // eslint-disable-next-line no-console
+  console.log(`Server listening on http://localhost:${PORT}`);
 });
